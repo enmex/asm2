@@ -5,7 +5,7 @@ char* getSubstr(char* str, int str_length, int substr_pos, int substr_length) {
 	char* result;
 
 	__asm {
-		//проверки на ноль/null
+		//proverka na nol`/null
 		mov		eax, str
 		cmp		eax, 0
 		je		STR_NULL
@@ -22,7 +22,7 @@ char* getSubstr(char* str, int str_length, int substr_pos, int substr_length) {
 		cmp		eax, 0
 		jle		INVALID_SUBSTR_LENGTH
 
-		//проверка что позиция подстроки не выходит за строку
+		//proverka chto pozicia stroki ne vyhodit za stroku
 		mov		eax, substr_pos
 		inc		eax
 		cmp		eax, str_length
@@ -30,7 +30,7 @@ char* getSubstr(char* str, int str_length, int substr_pos, int substr_length) {
 		jmp		CALL_MALLOC
 
 	CALL_MALLOC:
-		//выделяем память
+		//vydelyaem pamyat`
 		mov		eax, substr_length
 		inc		eax 
 		push	eax
@@ -38,7 +38,7 @@ char* getSubstr(char* str, int str_length, int substr_pos, int substr_length) {
 
 		add		esp, 4
 
-		//подготовка к циклу
+		//podgotovka k cycle
 		mov		esi, str
 		mov		ecx, substr_pos
 		xor		ebx, ebx
